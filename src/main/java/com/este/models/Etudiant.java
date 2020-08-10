@@ -1,6 +1,7 @@
 package com.este.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +23,7 @@ public class Etudiant implements Serializable{
 	private String email; 
 	
 	private String motdepass;
+	
 
 	public Etudiant(){
 	}
