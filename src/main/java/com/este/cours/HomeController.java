@@ -36,4 +36,9 @@ public class HomeController {
 		return "components/blank";
 	}
 	
+	@RequestMapping(value="/login")
+	public String login() {
+		return "Admin/login";
+	}
+	
 }
