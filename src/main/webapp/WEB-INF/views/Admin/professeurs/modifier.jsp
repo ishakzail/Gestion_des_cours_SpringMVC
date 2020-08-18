@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Professeurs</title>
+  <title>Ajouter un professeur</title>
 
   <!-- Custom fonts for this template -->
   <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -224,51 +224,42 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-          <!-- Page Heading -->
-          
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Liste des professeurs</h6>
-            </div>
-            <div class="card-body">
-            	<c:url value="/admin/profs/ajouter" var="ajouter"></c:url>
-	            <a href="${ajouter }" class="btn btn-primary btn-icon-split">	                  
-	                  <span class="text">Ajouter un professeur</span>
-	            </a>
-	            <br><br>
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Nom Complete</th>
-                      <th>Email</th>
-                      <th>Mot de pass</th>
-                      <th>Départements</th>
-                      <th>Filière</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Fahd Karami</td>
-                      <td>fahd.karami@uca.ma</td>
-                      <td>Isil2020</td>
-                      <td>Informatique</td>
-                      <td>ISIL</td>
-                      <c:url value="admin/profs/id/modifier" var="modifier"></c:url>
-                      <td><a href="${modifier }"><i class="far fa-edit" style="color: green"></a></i> | <a href="#"><i class="far fa-trash-alt" style="color: red"></i></a>  </td>
-                      
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-        </div>
+        	
+       			<div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Modifier les donneés du professeur</h1>
+                  </div>
+                  <form class="user">
+                    <div class="form-group">
+                    <label class="col-md-3 control-label" for="inputRounded">Nom Complete</label>
+                      <input type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="">
+                    </div>
+                    <div class="form-group">
+                    <label class="col-md-3 control-label" for="inputRounded">Mot de pass</label>
+                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="">
+                    </div>
+                    
+                    <div class="form-group">
+                    <label class="col-md-3 control-label" for="inputRounded">Départements</label>
+                      <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="">
+                    </div>
+                    
+                    <div class="form-group">
+                    <label class="col-md-3 control-label" for="inputRounded">Filière</label>
+                      <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="">
+                    </div>
+                    
+                    <a href="<%=request.getContextPath() %>resources/index.html" class="btn btn-primary btn-user btn-block">
+                      Modifier
+                    </a>
+                    
+                  </form>
+                 
+            
+                 
+                </div>
+             
+              
         <!-- /.container-fluid -->
 
       </div>

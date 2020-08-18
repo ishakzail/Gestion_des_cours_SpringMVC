@@ -12,16 +12,6 @@ public class AdminController {
 	public String index() {
 		return "components/blank";
 	}
-	
-//	@RequestMapping(value="/profs")
-//	public String getProfs() {
-//		return "components/blank";
-//	}
-//	
-//	@RequestMapping(value="/etudiants")
-//	public String getEtudiants() {
-//		return "components/blank";
-//	}
-	
+
 	
 }

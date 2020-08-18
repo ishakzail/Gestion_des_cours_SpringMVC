@@ -17,5 +17,10 @@ public class ProfesseurController {
 			return("Admin/professeurs/ajouter");
 		}
 		
+		@RequestMapping(value="profs/modifier")
+		public String modifier() {
+			return("Admin/professeurs/modifier");
+		}
+		
 		
 }

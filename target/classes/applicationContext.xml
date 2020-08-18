@@ -51,6 +51,3 @@
 	<import resource="classpath*:config/beans-config.xml" />
 	
 </beans>
-
-
-

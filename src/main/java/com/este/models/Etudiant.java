@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -23,6 +25,11 @@ public class Etudiant implements Serializable{
 	private String email; 
 	
 	private String motdepass;
+	
+	@ManyToOne
+	@JoinColumn(name="idFil")
+	private Filiere filiere;
+	
 	
 
 	public Etudiant(){
