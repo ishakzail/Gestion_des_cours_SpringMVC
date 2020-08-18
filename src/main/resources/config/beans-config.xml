@@ -20,5 +20,15 @@
 		<property name="dao" ref="etudiantDao"></property>
 	</bean>
 	
+	<bean id="filiereDao" class="com.este.dao.FiliereDaoImpl" />
+	<bean id="filiereService" class="com.este.services.FiliereServiceImpl" >
+		<property name="dao" ref="filiereDao"></property>
+	</bean>
+	
+	<bean id="departementDao" class="com.este.dao.DepartementDaoImpl" />
+	<bean id="departementService" class="com.este.services.DepartementServiceImpl" >
+		<property name="dao" ref="departementDao"></property>
+	</bean>
+	
 	
 </beans>

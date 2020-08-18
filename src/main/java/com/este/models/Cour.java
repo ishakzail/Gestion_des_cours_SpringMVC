@@ -31,6 +31,16 @@ public class Cour implements Serializable{
 	public Cour() {
 	}
 	
+	public Cour(Long idCour, String nom, String module, Professeur prof) {
+		super();
+		this.idCour = idCour;
+		this.nom = nom;
+		this.module = module;
+		this.prof = prof;
+	}
+
+
+
 	public Long getIdCour() {
 		return idCour;
 	}

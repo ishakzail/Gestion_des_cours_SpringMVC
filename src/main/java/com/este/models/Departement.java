@@ -27,6 +27,16 @@ public class Departement implements Serializable{
 	public Departement(){
 		
 	}
+	
+
+	public Departement(Long idDept, String nom, List<Professeur> profs, List<Filiere> filieres) {
+		super();
+		this.idDept = idDept;
+		this.nom = nom;
+		this.profs = profs;
+		this.filieres = filieres;
+	}
+
 
 	public Long getIdDept() {
 		return idDept;

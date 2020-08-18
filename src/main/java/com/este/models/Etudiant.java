@@ -35,6 +35,17 @@ public class Etudiant implements Serializable{
 	public Etudiant(){
 	}
 	
+	public Etudiant(Long idEtud, String prenom, String email, String motdepass, Filiere filiere) {
+		super();
+		this.idEtud = idEtud;
+		this.prenom = prenom;
+		this.email = email;
+		this.motdepass = motdepass;
+		this.filiere = filiere;
+	}
+
+
+
 	public Long getIdEtud() {
 		return idEtud;
 	}
