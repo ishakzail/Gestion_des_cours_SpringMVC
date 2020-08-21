@@ -43,13 +43,13 @@ public class GenericDaoImpl<E> implements GenericDao<E>{
 
 	@Override
 	public List<E> selectAll() {
-		Query query = em.createQuery("select t from " + type.getSimpleName() + "t");
+		Query query = em.createQuery("select t from " + type.getSimpleName()+ " t");
 		return query.getResultList();
 	}
 
 	@Override
 	public List<E> selectAll(String sortField, String sort) {
-		Query query = em.createQuery("select t from " + type.getSimpleName() + "t order by " + sortField + " " + sort);
+		Query query = em.createQuery("select t from " + type.getSimpleName() + " t order by " + sortField + " " + sort);
 		return query.getResultList();
 	}
 
@@ -66,7 +66,7 @@ public class GenericDaoImpl<E> implements GenericDao<E>{
 
 	@Override
 	public E findOne(String paramName, Object paramValue) {
-		Query query = em.createQuery("select t from " + type.getSimpleName() + "t where " + paramName + " = :x");
+		Query query = em.createQuery("select t from " + type.getSimpleName() + " t where " + paramName + " = :x");
 		query.setParameter(paramName, paramValue);
 		return query.getResultList().size() > 0 ? (E) query.getResultList().get(0) : null;
 

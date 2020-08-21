@@ -21,6 +21,20 @@
 	<li class="nav-item"><a class="nav-link" href="${home}"> <i
 			class="fas fa-fw fa-tachometer-alt"></i> <span>Tableau de bord</span></a>
 	</li>
+	
+	<!-- Divider -->
+	<hr class="sidebar-divider">
+	<c:url value="/admin/departements" var="departements" />
+	<li class="nav-item"><a class="nav-link" href="${departements }"> <i
+			class="fas fa-fw fa-tachometer-alt"></i> <span>Gestion des départements</span></a>
+	</li>
+	
+	<!-- Divider -->
+	<hr class="sidebar-divider">
+	<c:url value="/admin/filieres" var="filieres" />
+	<li class="nav-item"><a class="nav-link" href="${filieres }"> <i
+			class="fas fa-fw fa-tachometer-alt"></i> <span>Gestion des filières</span></a>
+	</li>
 
 	<!-- Divider -->
 	<hr class="sidebar-divider">

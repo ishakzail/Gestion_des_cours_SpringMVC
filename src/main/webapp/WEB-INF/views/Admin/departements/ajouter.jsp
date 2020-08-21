@@ -225,35 +225,24 @@
 
         <!-- Begin Page Content -->
         	
-       			<div class="p-5">
+       			<div class="p-4">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Ajouter un professeur</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Ajouter une département</h1>
                   </div>
-                  <form class="user">
+                  <c:url value="/admin/departement/enregister"  var="enregister" />
+                  <f:form  action="${enregister }" modelAttribute="dept" method="post" role="form">
+                  	<f:hidden path="idDept"/>
                     <div class="form-group">
-                    <label class="col-md-3 control-label" for="inputRounded">Nom Complete</label>
-                      <input type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="">
-                    </div>
-                    <div class="form-group">
-                    <label class="col-md-3 control-label" for="inputRounded">Mot de pass</label>
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="">
+                    	<label class="col-md-3 control-label" for="inputRounded">Nom du département</label>
+                      	<f:input class="form-control form-control-user" path="nom" required="required"/>
                     </div>
                     
-                    <div class="form-group">
-                    <label class="col-md-3 control-label" for="inputRounded">Départements</label>
-                      <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="">
+                    <div class="form-group" style="text-align: center">
+	                    <button type="submit" class="btn btn-primary btn-user">
+	                      Enregister
+	                    </button>
                     </div>
-                    
-                    <div class="form-group">
-                    <label class="col-md-3 control-label" for="inputRounded">Filière</label>
-                      <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="">
-                    </div>
-                    
-                    <a href="<%=request.getContextPath() %>resources/index.html" class="btn btn-primary btn-user btn-block">
-                      Enregister
-                    </a>
-                    
-                  </form>
+                  </f:form>
                  
             
                  

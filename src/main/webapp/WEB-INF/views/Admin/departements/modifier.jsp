@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Ajouter une departement</title>
+  <title>Ajouter un professeur</title>
 
   <!-- Custom fonts for this template -->
   <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -227,7 +227,7 @@
         	
        			<div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Ajouter un professeur</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Modifier les donneés du professeur</h1>
                   </div>
                   <form class="user">
                     <div class="form-group">
@@ -250,7 +250,7 @@
                     </div>
                     
                     <a href="<%=request.getContextPath() %>resources/index.html" class="btn btn-primary btn-user btn-block">
-                      Enregister
+                      Modifier
                     </a>
                     
                   </form>

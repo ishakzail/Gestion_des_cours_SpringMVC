@@ -234,7 +234,7 @@
               <h6 class="m-0 font-weight-bold text-primary">Liste des professeurs</h6>
             </div>
             <div class="card-body">
-            	<c:url value="/admin/profs/ajouter" var="ajouter"></c:url>
+            	<c:url value="/admin/professeurs/ajouter" var="ajouter"></c:url>
 	            <a href="${ajouter }" class="btn btn-primary btn-icon-split">	                  
 	                  <span class="text">Ajouter un professeur</span>
 	            </a>
@@ -258,7 +258,7 @@
                       <td>Isil2020</td>
                       <td>Informatique</td>
                       <td>ISIL</td>
-                      <c:url value="admin/profs/id/modifier" var="modifier"></c:url>
+                      <c:url value="admin/departements/id/modifier" var="modifier"></c:url>
                       <td><a href="${modifier }"><i class="far fa-edit" style="color: green"></a></i> | <a href="#"><i class="far fa-trash-alt" style="color: red"></i></a>  </td>
                       
                     </tr>
