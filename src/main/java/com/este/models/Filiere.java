@@ -42,7 +42,7 @@ public class Filiere implements Serializable{
 	
 	public Filiere(Long idFil, String nom, Departement departement, List<Professeur> profs) {
 		super();
-		IdFil = idFil;
+		this.IdFil = idFil;
 		this.nom = nom;
 		this.departement = departement;
 		this.profs = profs;
@@ -61,7 +61,7 @@ public class Filiere implements Serializable{
 	}
 
 	public void setIdFil(Long idFil) {
-		IdFil = idFil;
+		this.IdFil = idFil;
 	}
 
 	public String getNom() {
