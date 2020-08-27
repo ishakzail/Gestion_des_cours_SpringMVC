@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -18,7 +16,7 @@ public class Filiere implements Serializable{
 
 	@Id
 	@GeneratedValue
-	private Long IdFil;
+	private Long idFil;
 	
 	private String nom;
 	
@@ -29,56 +27,77 @@ public class Filiere implements Serializable{
 	@OneToMany(mappedBy="filiere")
 	private List<Etudiant> etudiants;
 	
-	@ManyToMany
-	@JoinTable(name = "T_Profs_Filiere_Associations",
-            joinColumns = @JoinColumn( name = "idFil" ),
-            inverseJoinColumns = @JoinColumn( name = "idProf" ))
-	private List<Professeur> profs;
+	@OneToMany(mappedBy="filiere")
+	private List<Professeur> professeurs;
 	
 	
 	public Filiere() {
 		
 	}
-	
-	public Filiere(Long idFil, String nom, Departement departement, List<Professeur> profs) {
+
+
+	public Filiere(Long idFil, String nom, Departement departement, List<Etudiant> etudiants,
+			List<Professeur> professeurs) {
 		super();
-		this.IdFil = idFil;
+		this.idFil = idFil;
 		this.nom = nom;
 		this.departement = departement;
-		this.profs = profs;
+		this.etudiants = etudiants;
+		this.professeurs = professeurs;
 	}
 
-	public Departement getDepartement() {
-		return departement;
-	}
-
-	public void setDepartement(Departement departement) {
-		this.departement = departement;
-	}
 
 	public Long getIdFil() {
-		return IdFil;
+		return idFil;
 	}
 
+
 	public void setIdFil(Long idFil) {
-		this.IdFil = idFil;
+		this.idFil = idFil;
 	}
+
 
 	public String getNom() {
 		return nom;
 	}
 
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
-	public List<Professeur> getProfs() {
-		return profs;
+
+	public Departement getDepartement() {
+		return departement;
 	}
 
-	public void setProfs(List<Professeur> profs) {
-		this.profs = profs;
+
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
 	}
+
+
+	public List<Etudiant> getEtudiants() {
+		return etudiants;
+	}
+
+
+	public void setEtudiants(List<Etudiant> etudiants) {
+		this.etudiants = etudiants;
+	}
+
+
+	public List<Professeur> getProfesseurs() {
+		return professeurs;
+	}
+
+
+	public void setProfesseurs(List<Professeur> professeurs) {
+		this.professeurs = professeurs;
+	}
+
+	
+	
 	
 
 	

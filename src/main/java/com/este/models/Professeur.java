@@ -3,6 +3,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -10,6 +11,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,36 +30,41 @@ public class Professeur implements Serializable{
 	
 	private String motdepass;
 	
-	@OneToMany(mappedBy = "prof")
+	@OneToOne
+	@JoinColumn(name="role_id")
+	private Role role_prof;
+	
+	@OneToMany(mappedBy = "prof" , fetch = FetchType.LAZY)
 	private List<Cour> cours;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="idDept")
 	private Departement departement;
 	
-	@ManyToMany
-	@JoinTable(name = "T_Profs_Filiere_Associations",
-            joinColumns = @JoinColumn( name = "idProf" ),
-            inverseJoinColumns = @JoinColumn( name = "idFil" ))
-	private List<Filiere> filieres ;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="idFil")
+	private Filiere filiere ;
 	
 	public Professeur() {
 		
 	}
 
 	
-	public Professeur(Long idProf, String nom, String prenom, String email, String motdepass, List<Cour> cours,
-			Departement departement, List<Filiere> filieres) {
+
+	public Professeur(Long idProf, String nom, String prenom, String email, String motdepass, Role role_prof,
+			List<Cour> cours, Departement departement, Filiere filiere) {
 		super();
 		this.idProf = idProf;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
 		this.motdepass = motdepass;
+		this.role_prof = role_prof;
 		this.cours = cours;
 		this.departement = departement;
-		this.filieres = filieres;
+		this.filiere = filiere;
 	}
+
 
 
 	public Long getIdProf() {
@@ -116,14 +123,25 @@ public class Professeur implements Serializable{
 		this.departement = departement;
 	}
 
-
-	public List<Filiere> getFilieres() {
-		return filieres;
+	public Filiere getFiliere() {
+		return filiere;
 	}
 
-	public void setFilieres(List<Filiere> filieres) {
-		this.filieres = filieres;
+	public void setFiliere(Filiere filiere) {
+		this.filiere = filiere;
 	}
+
+	public Role getRole_prof() {
+		return role_prof;
+	}
+
+	public void setRole_prof(Role role_prof) {
+		this.role_prof = role_prof;
+	}
+	
+	
+	
+	
 
 	
 	

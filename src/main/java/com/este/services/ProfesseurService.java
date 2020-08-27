@@ -6,7 +6,7 @@ import com.este.models.Professeur;
 
 public interface ProfesseurService {
 
-public Professeur save(Professeur entity);
+	public Professeur save(Professeur entity);
 	
 	public Professeur update(Professeur entity);
 	

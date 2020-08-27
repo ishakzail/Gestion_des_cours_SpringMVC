@@ -3,6 +3,7 @@ package com.este.models;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -18,10 +19,10 @@ public class Departement implements Serializable{
 	
 	private String nom;
 	
-	@OneToMany(mappedBy="departement")
+	@OneToMany(mappedBy="departement" , fetch = FetchType.LAZY)
 	private List<Professeur> profs;
 	
-	@OneToMany(mappedBy ="departement")
+	@OneToMany(mappedBy ="departement" , fetch =FetchType.LAZY)
 	private List<Filiere> filieres;
 	
 	public Departement(){
@@ -61,6 +62,18 @@ public class Departement implements Serializable{
 	public void setProfs(List<Professeur> profs) {
 		this.profs = profs;
 	}
+
+	
+	public List<Filiere> getFilieres() {
+		return filieres;
+	}
+
+
+	public void setFilieres(List<Filiere> filieres) {
+		this.filieres = filieres;
+	}
+	
+	
 
 	
 	

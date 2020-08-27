@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -19,6 +18,8 @@ public class Cour implements Serializable{
 	@GeneratedValue
 	private Long idCour;
 	
+	private String path;
+	
 	private String nom;
 	
 	private String module;
@@ -28,18 +29,19 @@ public class Cour implements Serializable{
 	private Professeur prof;
 	
 
-	public Cour() {
+	public Cour(String string, String path2, Object object) {
 	}
 	
-	public Cour(Long idCour, String nom, String module, Professeur prof) {
+
+	public Cour(Long idCour, String path, String nom, String module, Professeur prof) {
 		super();
 		this.idCour = idCour;
+		this.path = path;
 		this.nom = nom;
 		this.module = module;
 		this.prof = prof;
 	}
-
-
+	
 
 	public Long getIdCour() {
 		return idCour;
@@ -56,6 +58,17 @@ public class Cour implements Serializable{
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+	
+	
+	public String getPath() {
+		return path;
+	}
+
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
 
 	public String getModule() {
 		return module;
