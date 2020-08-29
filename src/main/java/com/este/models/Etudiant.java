@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,8 +19,10 @@ public class Etudiant implements Serializable{
 
 	
 	@Id
-	@GeneratedValue
-	private Long idEtud;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idEtud;
+	
+	private String nom;
 	
 	private String prenom;
 	
@@ -40,11 +43,12 @@ public class Etudiant implements Serializable{
 	public Etudiant(){
 	}
 
-	
 
-	public Etudiant(Long idEtud, String prenom, String email, String motdepass, Filiere filiere, Role role_etudiant) {
+	public Etudiant(int idEtud, String nom, String prenom, String email, String motdepass, Filiere filiere,
+			Role role_etudiant) {
 		super();
 		this.idEtud = idEtud;
+		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
 		this.motdepass = motdepass;
@@ -53,12 +57,11 @@ public class Etudiant implements Serializable{
 	}
 
 
-
-	public Long getIdEtud() {
+	public int getIdEtud() {
 		return idEtud;
 	}
 
-	public void setIdEtud(Long idEtud) {
+	public void setIdEtud(int idEtud) {
 		this.idEtud = idEtud;
 	}
 
@@ -69,6 +72,15 @@ public class Etudiant implements Serializable{
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+	
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
 
 	public String getEmail() {
 		return email;

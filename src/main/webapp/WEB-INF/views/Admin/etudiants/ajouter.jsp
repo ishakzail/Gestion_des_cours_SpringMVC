@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Professeurs</title>
+  <title>Ajouter un étudiant</title>
 
   <!-- Custom fonts for this template -->
   <link href="${pageContext.request.contextPath}/resources/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -224,58 +224,66 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-          <!-- Page Heading -->
-          
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Liste des professeurs</h6>
-            </div>
-            <div class="card-body">
-            	<c:url value="professeur/ajouter" var="ajouter"></c:url>
-	            <a href="${ajouter }" class="btn btn-primary btn-icon-split">	                  
-	                  <span class="text">Ajouter un professeur</span>
-	            </a>
-	            <br><br>
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Nom </th>
-                      <th>Prenom</th>
-                      <th>Email</th>
-                      
-                      <th>Département</th>
-                      <th>Filière</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  <c:forEach items="${profss }" var="prof">
-                    <tr>
-                      <td>${ prof.nom }  </td>
-                      <td>${ prof.prenom }  </td>
-                      <td>${prof.email }</td>
-                      <td>${prof.departement.getNom() }</td>
-                      <td>${prof.filiere.nom }</td>
-                      		<c:url value="professeur/modifier/${prof.getIdProf() }" var="modifier"></c:url>
-	                    <td>
-	                      <a href="${modifier }"><i class="far fa-edit" style="color: green"></a></i> 
-	                      | 
-	                   		<c:url value="professeur/supprimer/${prof.getIdProf() }" var="supprimer" />
-	                      <a href="${supprimer }"><i class="far fa-trash-alt" style="color: red"></i></a>  
-	                    </td>
-                    </tr>
-                   </c:forEach>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-        </div>
+        	
+             <div class="p-4">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Ajouter un étudiant</h1>
+                  </div>
+                  <c:url value="/admin/etudiant/enregister"  var="enregister" />
+                  <f:form  action="${enregister }" modelAttribute="etud" method="post" role="form">
+                  	<f:hidden path="idEtud"/>
+                    <div class="form-group">
+                    	<label class="col-md-3 control-label" for="inputRounded">Nom</label>
+                      	<f:input class="form-control form-control-user" path="nom" required="required"/>
+                    </div>
+                    
+                    <div class="form-group">
+                    	<label class="col-md-3 control-label" for="inputRounded">Prenom</label>
+                      	<f:input class="form-control form-control-user" path="prenom" required="required"/>
+                    </div>
+                    
+                    <div class="form-group">
+                    	<label class="col-md-3 control-label" for="inputRounded">Email</label>
+                      	<f:input class="form-control form-control-user" path="email" required="required"/>
+                    </div>
+                    
+                    <div class="form-group">
+                    	<label class="col-md-3 control-label" for="inputRounded">Mot de pass</label>
+                      	<f:input type="password" class="form-control form-control-user" path="motdepass" required="required"/>
+                    </div>
+                    
+                    
+					
+					<!-- 
+					<script type="text/javascript">
+						$(function() {
+	
+							$('#chkveg').multiselect({
+	
+							includeSelectAllOption: true
+	
+							});
+	
+						});
+					</script>
+					 -->					
+					<div class="form-group">
+                    	<label class="col-md-3 control-label" for="inputRounded">Filières</label>
+						<f:select path="filiere.idFil" class="form-control mb-md" >
+							<c:forEach var="fils" items="${filiere}">
+											<option value="${fils.idFil}"> ${fils.nom } </option>
+							</c:forEach>
+						</f:select>
+					</div>
+                    
+                    <div class="form-group" style="text-align: center">
+	                    <button type="submit" class="btn btn-primary btn-user">
+	                      Enregister
+	                    </button>
+                    </div>
+                  </f:form>
+             
+              
         <!-- /.container-fluid -->
 
       </div>

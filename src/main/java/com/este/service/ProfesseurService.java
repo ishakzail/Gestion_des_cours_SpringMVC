@@ -1,9 +1,11 @@
 package com.este.service;
 
 
+import org.springframework.security.core.userdetails.UserDetailsService;
+
 import com.este.models.Professeur;
 
-public interface ProfesseurService {
+public interface ProfesseurService extends UserDetailsService{
 
 	public Iterable<Professeur> selectAll();
 	

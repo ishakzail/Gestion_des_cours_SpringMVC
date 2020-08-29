@@ -18,7 +18,7 @@ public class Fichier implements Serializable{
 	
 	@Id
 	@GeneratedValue
-	private Long idFic ;
+	private int idFic ;
 	
 	private String nom;
 	
@@ -31,18 +31,18 @@ public class Fichier implements Serializable{
 		super();
 	}
 
-	public Fichier(Long idFic, String nom, Cour cour) {
+	public Fichier(int idFic, String nom, Cour cour) {
 		super();
 		this.idFic = idFic;
 		this.nom = nom;
 		this.cour = cour;
 	}
 
-	public Long getIdFic() {
+	public int getIdFic() {
 		return idFic;
 	}
 
-	public void setIdFic(Long idFic) {
+	public void setIdFic(int idFic) {
 		this.idFic = idFic;
 	}
 

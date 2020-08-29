@@ -17,8 +17,8 @@
 	<hr class="sidebar-divider my-0">
 
 	<!-- Nav Item - Dashboard -->
-	<c:url value="/admin/home" var="home" />
-	<li class="nav-item"><a class="nav-link" href="${home}"> <i
+	<c:url value="/admin/accueil" var="accueil" />
+	<li class="nav-item"><a class="nav-link" href="${accueil}"> <i
 			class="fas fa-fw fa-tachometer-alt"></i> <span>Tableau de bord</span></a>
 	</li>
 	

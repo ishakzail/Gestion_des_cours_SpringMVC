@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -13,8 +14,8 @@ import javax.persistence.Table;
 public class Role implements Serializable{
 	
 	@Id
-	@GeneratedValue
-	private Long role_id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int role_id;
 	
 	private String nom_role;
 	
@@ -27,11 +28,16 @@ public class Role implements Serializable{
 	@OneToOne(mappedBy="role_etudiant")
 	private Etudiant etudiant;
 	
+	public Role(int role_id) {
+		super();
+		this.role_id = role_id;
+	}
+	
 	public Role() {
 		
 	}
 
-	public Role(Long role_id, String nom_role, Admin admin, Professeur professeur, Etudiant etudiant) {
+	public Role(int role_id, String nom_role, Admin admin, Professeur professeur, Etudiant etudiant) {
 		super();
 		this.role_id = role_id;
 		this.nom_role = nom_role;
@@ -41,11 +47,11 @@ public class Role implements Serializable{
 	}
 
 
-	public Long getRole_id() {
+	public int getRole_id() {
 		return role_id;
 	}
 
-	public void setRole_id(Long role_id) {
+	public void setRole_id(int role_id) {
 		this.role_id = role_id;
 	}
 

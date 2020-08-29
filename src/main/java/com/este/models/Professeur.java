@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -19,8 +20,8 @@ import javax.persistence.Table;
 public class Professeur implements Serializable{
 	
 	@Id
-	@GeneratedValue
-	private Long idProf;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idProf;
 	
 	private String nom;
 	
@@ -51,7 +52,7 @@ public class Professeur implements Serializable{
 
 	
 
-	public Professeur(Long idProf, String nom, String prenom, String email, String motdepass, Role role_prof,
+	public Professeur(int idProf, String nom, String prenom, String email, String motdepass, Role role_prof,
 			List<Cour> cours, Departement departement, Filiere filiere) {
 		super();
 		this.idProf = idProf;
@@ -67,11 +68,11 @@ public class Professeur implements Serializable{
 
 
 
-	public Long getIdProf() {
+	public int getIdProf() {
 		return idProf;
 	}
 
-	public void setIdProf(Long idProf) {
+	public void setIdProf(int idProf) {
 		this.idProf = idProf;
 	}
 

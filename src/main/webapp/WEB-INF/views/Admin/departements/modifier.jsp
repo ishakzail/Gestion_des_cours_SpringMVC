@@ -10,17 +10,17 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Ajouter un professeur</title>
+  <title>Modifier un departement</title>
 
   <!-- Custom fonts for this template -->
-  <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="${pageContext.request.contextPath}/resources/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resources/admin/css/sb-admin-2.min.css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
-  <link href="${pageContext.request.contextPath}/resources/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resources/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -225,35 +225,24 @@
 
         <!-- Begin Page Content -->
         	
-       			<div class="p-5">
+       			<div class="p-4">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Modifier les donneés du professeur</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Modifier le département ${departement.nom}</h1>
                   </div>
-                  <form class="user">
+                  <c:url value="/admin/departement/modifier"  var="modifier" />
+                  <f:form  action="${modifier }" modelAttribute="departement" method="post" >
+                  	<f:hidden path="idDept"/>
                     <div class="form-group">
-                    <label class="col-md-3 control-label" for="inputRounded">Nom Complete</label>
-                      <input type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="">
-                    </div>
-                    <div class="form-group">
-                    <label class="col-md-3 control-label" for="inputRounded">Mot de pass</label>
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="">
+                    	<label class="col-md-3 control-label" for="inputRounded">Nom du département</label>
+                      	<f:input class="form-control form-control-user" path="nom" required="required"/>
                     </div>
                     
-                    <div class="form-group">
-                    <label class="col-md-3 control-label" for="inputRounded">Départements</label>
-                      <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="">
+                    <div class="form-group" style="text-align: center">
+	                    <button type="submit" class="btn btn-primary btn-user">
+	                      Modifier
+	                    </button>
                     </div>
-                    
-                    <div class="form-group">
-                    <label class="col-md-3 control-label" for="inputRounded">Filière</label>
-                      <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="">
-                    </div>
-                    
-                    <a href="<%=request.getContextPath() %>resources/index.html" class="btn btn-primary btn-user btn-block">
-                      Modifier
-                    </a>
-                    
-                  </form>
+                  </f:form>
                  
             
                  
@@ -284,18 +273,18 @@
   		
 
   <!-- Bootstrap core JavaScript-->
-  <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>
-  <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/admin/vendor/jquery/jquery.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="${pageContext.request.contextPath}/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="${pageContext.request.contextPath}/resources/js/sb-admin-2.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/admin/js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <script src="${pageContext.request.contextPath}/resources/vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="${pageContext.request.contextPath}/resources/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/admin/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
  
  

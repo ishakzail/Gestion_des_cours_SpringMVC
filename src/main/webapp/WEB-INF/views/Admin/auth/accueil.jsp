@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Departements</title>
+  <title>Acceuil</title>
 
   <!-- Custom fonts for this template -->
   <link href="${pageContext.request.contextPath}/resources/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -98,46 +98,26 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
+			<div class="row">
 
-          <!-- Page Heading -->
-          
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Liste des départements</h6>
-            </div>
-            <div class="card-body">
-            	<c:url value="/admin/departement/ajouter" var="ajouter"></c:url>
-	            <a href="${ajouter }" class="btn btn-primary btn-icon-split">	                  
-	                  <span class="text">Ajouter un departement</span>
-	            </a>
-	            <br><br>
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Nom Complete</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  <c:forEach items="${departement }" var="dept">
-                    <tr>
-                      <td>${dept.getNom() }</td>
-                      <c:url value="departement/modifier/${dept.getIdDept() }" var="modifier"></c:url>
-                      <td>
-                      <a href="${modifier }"><i class="far fa-edit" style="color: green"></a></i> 
-                      | 
-                      <c:url value="departement/supprimer/${dept.getIdDept() }" var="supprimer" />
-                      <a href="${supprimer }"><i class="far fa-trash-alt" style="color: red"></i></a>  </td>
-                    </tr>
-                  </c:forEach>
-                  </tbody>
-                </table>
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Nombre de départements</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${dept }</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
+          
         </div>
         <!-- /.container-fluid -->
 

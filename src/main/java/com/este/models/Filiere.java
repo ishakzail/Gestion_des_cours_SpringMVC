@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,8 +16,8 @@ import javax.persistence.Table;
 public class Filiere implements Serializable{
 
 	@Id
-	@GeneratedValue
-	private Long idFil;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idFil;
 	
 	private String nom;
 	
@@ -36,7 +37,7 @@ public class Filiere implements Serializable{
 	}
 
 
-	public Filiere(Long idFil, String nom, Departement departement, List<Etudiant> etudiants,
+	public Filiere(int idFil, String nom, Departement departement, List<Etudiant> etudiants,
 			List<Professeur> professeurs) {
 		super();
 		this.idFil = idFil;
@@ -47,12 +48,12 @@ public class Filiere implements Serializable{
 	}
 
 
-	public Long getIdFil() {
+	public int getIdFil() {
 		return idFil;
 	}
 
 
-	public void setIdFil(Long idFil) {
+	public void setIdFil(int idFil) {
 		this.idFil = idFil;
 	}
 

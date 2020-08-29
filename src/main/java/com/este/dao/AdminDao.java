@@ -9,5 +9,7 @@ import com.este.models.Admin;
 @Repository("adminRepository")
 public interface AdminDao extends CrudRepository<Admin, Integer>{
 
+	public Admin findByEmail(String email);
+	
 	
 }

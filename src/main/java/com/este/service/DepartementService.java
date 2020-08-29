@@ -11,5 +11,6 @@ public interface DepartementService {
 	public void delete(int id);
 	
 	public Departement find(int id);
+	
 
 }
