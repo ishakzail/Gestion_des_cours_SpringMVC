@@ -1,11 +1,16 @@
 package com.este.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -22,8 +27,8 @@ public class Role implements Serializable{
 	@OneToOne(mappedBy="role_admin")
 	private Admin admin;
 	
-	@OneToOne(mappedBy="role_prof")
-	private Professeur professeur;
+	@OneToMany(mappedBy = "role_prof" , fetch =FetchType.LAZY)
+	private List<Professeur> professeur;
 	
 	@OneToOne(mappedBy="role_etudiant")
 	private Etudiant etudiant;
@@ -36,8 +41,8 @@ public class Role implements Serializable{
 	public Role() {
 		
 	}
-
-	public Role(int role_id, String nom_role, Admin admin, Professeur professeur, Etudiant etudiant) {
+	
+	public Role(int role_id, String nom_role, Admin admin, List<Professeur> professeur, Etudiant etudiant) {
 		super();
 		this.role_id = role_id;
 		this.nom_role = nom_role;
@@ -45,7 +50,6 @@ public class Role implements Serializable{
 		this.professeur = professeur;
 		this.etudiant = etudiant;
 	}
-
 
 	public int getRole_id() {
 		return role_id;
@@ -71,11 +75,12 @@ public class Role implements Serializable{
 		this.admin = admin;
 	}
 
-	public Professeur getProfesseur() {
+
+	public List<Professeur> getProfesseur() {
 		return professeur;
 	}
 
-	public void setProfesseur(Professeur professeur) {
+	public void setProfesseur(List<Professeur> professeur) {
 		this.professeur = professeur;
 	}
 

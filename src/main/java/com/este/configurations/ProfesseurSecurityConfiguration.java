@@ -2,7 +2,9 @@ package com.este.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -17,6 +19,7 @@ import com.este.service.ProfesseurService;
 
 @EnableWebSecurity
 @Configuration
+@Order(1)
 public class ProfesseurSecurityConfiguration extends WebSecurityConfigurerAdapter{
 	
 	
@@ -34,7 +37,7 @@ public class ProfesseurSecurityConfiguration extends WebSecurityConfigurerAdapte
 					.formLogin()
 					.loginPage("/professeur-panel")
 					.loginProcessingUrl("/professeur/process-login")
-					.defaultSuccessUrl("/professeur-panel/welcome")
+					.defaultSuccessUrl("/professeur-panel/welcome" , true)
 					.failureUrl("/professeur-panel/login?error")
 					.usernameParameter("email").passwordParameter("motdepass")
 					.and()

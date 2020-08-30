@@ -3,6 +3,7 @@ package com.este.controller.admin;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -44,6 +45,8 @@ public class EtudiantController {
 	
 	@RequestMapping(value="etudiant/enregister", method = RequestMethod.POST)
 	public String enregister(ModelMap modelMap , @ModelAttribute("etudiant") Etudiant etudiant) throws IOException {
+		String hashPass = new BCryptPasswordEncoder().encode(etudiant.getMotdepass());
+		etudiant.setMotdepass(hashPass);
 		etudiant.setRole_etudiant(new Role(3));
 		etudiantService.save(etudiant);
 		return "redirect:/admin/etudiants";

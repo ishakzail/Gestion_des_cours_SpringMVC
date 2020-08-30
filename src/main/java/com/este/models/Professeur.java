@@ -1,18 +1,15 @@
 package com.este.models;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -31,8 +28,8 @@ public class Professeur implements Serializable{
 	
 	private String motdepass;
 	
-	@OneToOne
-	@JoinColumn(name="role_id")
+	@ManyToOne
+	@JoinColumn(name = "role_id", nullable = false)
 	private Role role_prof;
 	
 	@OneToMany(mappedBy = "prof" , fetch = FetchType.LAZY)
@@ -49,7 +46,6 @@ public class Professeur implements Serializable{
 	public Professeur() {
 		
 	}
-
 	
 
 	public Professeur(int idProf, String nom, String prenom, String email, String motdepass, Role role_prof,
@@ -65,7 +61,6 @@ public class Professeur implements Serializable{
 		this.departement = departement;
 		this.filiere = filiere;
 	}
-
 
 
 	public int getIdProf() {
@@ -132,13 +127,19 @@ public class Professeur implements Serializable{
 		this.filiere = filiere;
 	}
 
+
 	public Role getRole_prof() {
 		return role_prof;
 	}
 
+
 	public void setRole_prof(Role role_prof) {
 		this.role_prof = role_prof;
 	}
+	
+	
+	
+	
 	
 	
 	

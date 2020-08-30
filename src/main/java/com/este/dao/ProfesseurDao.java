@@ -8,4 +8,6 @@ import com.este.models.Professeur;
 public interface ProfesseurDao extends CrudRepository<Professeur, Integer>{
 
 	public Professeur findByEmail(String email);
+	
+	
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -50,6 +51,8 @@ public class ProfesseurController {
 		
 		@RequestMapping(value="professeur/enregister", method = RequestMethod.POST)
 		public String enregister(ModelMap modelMap , @ModelAttribute("professeur") Professeur professeur) throws IOException {
+			String hashPass = new BCryptPasswordEncoder().encode(professeur.getMotdepass());
+			professeur.setMotdepass(hashPass);
 			professeur.setRole_prof(new Role(2));
 			professeurService.save(professeur);
 			return "redirect:/admin/professeurs";
