@@ -47,6 +47,7 @@ public class LoginProfesseurController {
 
 	@RequestMapping( value="logout" , method = RequestMethod.GET)
 	public String logout() {
+		
 		return "redirect:/professeur-panel/login?logout";
 	}
 	
@@ -58,7 +59,7 @@ public class LoginProfesseurController {
 		}else {
 			modelMap.put("msg", "Vous n'avez pas la permission pour cette page!");
 		}
-		return "Admin/accessDenied";
+		return "Professeur/accessDenied";
 	}
 	
 	@RequestMapping( value="welcome" , method = RequestMethod.GET)

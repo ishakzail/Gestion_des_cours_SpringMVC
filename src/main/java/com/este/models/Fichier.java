@@ -5,8 +5,10 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -17,12 +19,15 @@ import javax.persistence.Table;
 public class Fichier implements Serializable{
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idFic ;
+	
+	@Lob
+	private byte[] data;
 	
 	private String nom;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "idCour")
 	private Cour cour;
 
@@ -30,10 +35,18 @@ public class Fichier implements Serializable{
 	public Fichier() {
 		super();
 	}
-
-	public Fichier(int idFic, String nom, Cour cour) {
+	
+	public Fichier(byte[] data, String nom) {
 		super();
-		this.idFic = idFic;
+		this.data = data;
+		this.nom = nom;
+	}
+
+
+
+	public Fichier(byte[] data, String nom, Cour cour) {
+		super();
+		this.data = data;
 		this.nom = nom;
 		this.cour = cour;
 	}
@@ -61,7 +74,17 @@ public class Fichier implements Serializable{
 	public void setCour(Cour cour) {
 		this.cour = cour;
 	}
-		
+
+
+	public byte[] getData() {
+		return data;
+	}
+
+	public void setData(byte[] data) {
+		this.data = data;
+	}
+	
+	
 
 	
 }

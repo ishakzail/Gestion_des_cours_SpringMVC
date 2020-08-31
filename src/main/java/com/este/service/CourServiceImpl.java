@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.este.dao.CourDao;
 import com.este.models.Cour;
+import com.este.models.Professeur;
 
 @Transactional
 @Service("courService")
@@ -37,5 +38,8 @@ public class CourServiceImpl implements CourService{
 		return courDao.findById(id).get();
 	}
 
+	
+	
+	
 
 }

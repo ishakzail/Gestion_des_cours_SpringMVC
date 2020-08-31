@@ -1,10 +1,13 @@
 	package com.este.service;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,7 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.este.dao.ProfesseurDao;
-
+import com.este.models.Cour;
 import com.este.models.Professeur;
 
 @Transactional
@@ -56,6 +59,8 @@ public class ProfesseurServiceImpl implements ProfesseurService{
 		List<GrantedAuthority> grantedAutorities = new ArrayList<GrantedAuthority>();
 		grantedAutorities.add(new SimpleGrantedAuthority(professeur.getRole_prof().getNom_role())); 
 			
-		return new User(professeur.getEmail(),professeur.getMotdepass(),grantedAutorities );
+		return new User(professeur.getEmail() ,professeur.getMotdepass(),grantedAutorities );
 	}
+
+	
 }

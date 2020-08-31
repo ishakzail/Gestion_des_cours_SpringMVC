@@ -43,25 +43,7 @@
         <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
-       <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/resources/utilisateur/images/logo-est.png" alt="Logo EST" height="400" width="200"/>
-                </a>
-            </div>
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
-                        <li>
-                        	<c:url value="/professeur/cours" var="index"></c:url>
-                            <a href="${index }">
-                                <i class="fas fa-table"></i>Gestion des cours</a>
-                        </li>
-                       
-     				</ul>
-                </nav>
-            </div>
-        </aside>
+       <%@ include file="/WEB-INF/views/Professeur/components/Menu.jsp"%>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
@@ -72,7 +54,7 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                               <h2> Bienvenue ! </h2> 
+                               <h2> Liste des fichiers du cour ${cour.getModule() } </h2> 
                             </form>
                             <div class="header-button">
                                
@@ -129,11 +111,40 @@
                             <div class="col-lg-12">
                             	
                             	
-                            	
-                            	Bonjour Monsieur le professeur 
+                            
                                 
                                 
-                                
+                                <div class="overview-wrap">
+                                    
+                                    <button class="au-btn au-btn-icon au-btn--blue">
+                                    	<c:url value="/professeur/fichier/ajouter/${cour.getIdCour() }" var="ajouter"></c:url>
+                                        <a href="${ajouter }"><i class="zmdi zmdi-plus">Ajouter fichier au cour ${cour.getNom() }</i></a>
+                                     </button>
+                                </div>
+                                <br>
+                                <div class="table-responsive table--no-card m-b-40">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                                <th>Nom du fichier</th>
+                                                
+                                                <th>Action</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach items="${cour.getFichiers() }" var="fichier">
+                                            <tr>
+                                                <td>${fichier.nom}</td>
+                                                <c:url value="/professeur/fichier/supprimer/${fichier.idFic }/${fichier.cour.idCour }" var="supprimer" />
+                                                <td>
+                                                <a href="${supprimer }">Supprimer </a>
+                                               </td>
+                                            </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             
                         </div>
@@ -141,7 +152,6 @@
                     </div>
                 </div>
             </div>
-            
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>

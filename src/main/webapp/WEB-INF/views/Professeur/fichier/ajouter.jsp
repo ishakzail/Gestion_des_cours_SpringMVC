@@ -12,12 +12,12 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Accueil</title>
+    <title>Ajouter un fichier</title>
 
     <!-- Fontfaces CSS-->
     <link href="${pageContext.request.contextPath}/resources/utilisateur/css/font-face.css" rel="stylesheet" media="all">
-    <link href="${pageContext.request.contextPath}/resources/utilisateur/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="${pageContext.request.contextPath}/resources/utilisateur/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="${pageContext.request.contextPath}/resources/utilisateur/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="${pageContext.request.contextPath}/resources/utilisateur/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
@@ -39,40 +39,20 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        <!-- HEADER MOBILE-->
-        <!-- END HEADER MOBILE-->
-
+        
         <!-- MENU SIDEBAR-->
-       <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/resources/utilisateur/images/logo-est.png" alt="Logo EST" height="400" width="200"/>
-                </a>
-            </div>
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
-                        <li>
-                        	<c:url value="/professeur/cours" var="index"></c:url>
-                            <a href="${index }">
-                                <i class="fas fa-table"></i>Gestion des cours</a>
-                        </li>
-                       
-     				</ul>
-                </nav>
-            </div>
-        </aside>
+       <%@ include file="/WEB-INF/views/Professeur/components/Menu.jsp"%>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
-            <header class="header-desktop">
+             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                               <h2> Bienvenue ! </h2> 
+                               <h2> L'ajoute d'un cour </h2> 
                             </form>
                             <div class="header-button">
                                
@@ -124,26 +104,45 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        
                         <div class="row">
-                            <div class="col-lg-12">
-                            	
-                            	
-                            	
-                            	Bonjour Monsieur le professeur 
-                                
-                                
-                                
+                            
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Formulaire pour l'ajoute d'un fichier pour le cour ${cour.nom } </strong> 
+                                       
+                                    </div>
+                                    <c:url value="/professeur/fichier/enregister"  var="enregister"/>
+                                    <f:form modelAttribute="fichier" enctype="multipart/form-data" action="${enregister }" method="post">
+                                    
+                                    
+	                                    <div class="card-body card-block" >
+	                                        <div class="has-success form-group">
+	                                            <label for="inputSuccess2i" class=" form-control-label">Nom du fichier</label>
+	                                            <input type="file" name="file" class="form-control-success form-control" />
+	                                        </div>
+	                                        <f:hidden path="cour.idCour"/>
+	                                        
+	                                    </div>
+	                                    <div class="form-group" style="text-align: center">
+						                    <button type="submit" class="btn btn-primary btn-user">
+						                      Enregister
+						                    </button>
+						                    
+					                    </div>
+                                    </f:form>
+                                </div>
                             </div>
                             
                         </div>
-                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
         </div>
 
     </div>

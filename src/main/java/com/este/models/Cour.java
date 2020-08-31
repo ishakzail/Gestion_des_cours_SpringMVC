@@ -19,7 +19,7 @@ public class Cour implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCour;
+	private int idCour;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cour")
 	private List<Fichier> fichiers;
@@ -32,12 +32,35 @@ public class Cour implements Serializable{
 	@JoinColumn(name="idProf")
 	private Professeur prof;
 	
+	public Cour() {
+		
+	}
 
-	public Long getIdCour() {
+	public Cour(int idCour, List<Fichier> fichiers, String nom, String module, Professeur prof) {
+		super();
+		this.idCour = idCour;
+		this.fichiers = fichiers;
+		this.nom = nom;
+		this.module = module;
+		this.prof = prof;
+	}
+	
+	
+	
+
+	public List<Fichier> getFichiers() {
+		return fichiers;
+	}
+
+	public void setFichiers(List<Fichier> fichiers) {
+		this.fichiers = fichiers;
+	}
+
+	public int getIdCour() {
 		return idCour;
 	}
 
-	public void setIdCour(Long idCour) {
+	public void setIdCour(int idCour) {
 		this.idCour = idCour;
 	}
 

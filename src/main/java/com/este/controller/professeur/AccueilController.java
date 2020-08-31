@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -43,21 +45,15 @@ public class AccueilController {
 	private ProfesseurService professeurtService;
 
 	
-	@RequestMapping(value="accueil",method = RequestMethod.GET)
-	public String index(ModelMap modelMap , @ModelAttribute Professeur professeur) {
+	@RequestMapping(value="/accueil",method = RequestMethod.GET)
+	public String index(ModelMap modelMap ) {
 		
-		List<Cour> cours = professeur.getCours();
-				
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		System.out.println(professeur.getEmail());
-		modelMap.put("professeur", auth.getPrincipal());
-		// modelMap.put("cours",);
+		
 		return "Professeur/auth/accueil";
 	}
 	
-	@RequestMapping(value="cour/ajouter" , method = RequestMethod.GET)
-	public String ajouter(ModelMap modelMap) {
-		return "Professeur/cours/ajouter";
-	}
+	
+	
+	
 
 }
