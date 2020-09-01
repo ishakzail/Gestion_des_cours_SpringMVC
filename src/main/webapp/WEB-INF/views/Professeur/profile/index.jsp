@@ -12,7 +12,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Accueil</title>
+    <title>Profile</title>
 
     <!-- Fontfaces CSS-->
     <link href="${pageContext.request.contextPath}/resources/utilisateur/css/font-face.css" rel="stylesheet" media="all">
@@ -43,7 +43,7 @@
         <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
-      <%@ include file="/WEB-INF/views/Professeur/components/Menu.jsp"%>
+       <%@ include file="/WEB-INF/views/Professeur/components/Menu.jsp"%>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
@@ -54,7 +54,7 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                               <h2> Bienvenue ! </h2> 
+                               <h2> PROFILE </h2> 
                             </form>
                             <div class="header-button">
                                
@@ -66,7 +66,7 @@
                                         <div class="content">
                                             <a class="js-acc-btn" href="#"></a>
                                         </div>
-                                        <%@ include file="/WEB-INF/views/Professeur/components/compte.jsp"%>
+                                       <%@ include file="/WEB-INF/views/Professeur/components/compte.jsp"%>
                                     </div>
                                 </div>
                             </div>
@@ -83,22 +83,31 @@
                     <div class="container-fluid">
                         
                         <div class="row">
-                            <div class="col-lg-12">
-                            	
-                            	
-                            	
-                            	Bonjour Monsieur ${prof.getNom() }
-                                
-                                
-                                
+                          <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="fa fa-user"></i>
+                                        <strong class="card-title pl-2">Profile</strong>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mx-auto d-block">
+                                            
+                                            <h5 class="text-sm-center mt-2 mb-1">${prof.email}</h5>
+                                            <div class="location text-sm-center">
+                                                 ${prof.nom }
+                                             </div>
+                                        </div>
+                                        <hr>
+                                        
+                                    </div>
+                                </div>
                             </div>
-                            
+                          
                         </div>
                         
                     </div>
                 </div>
             </div>
-            
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>

@@ -7,6 +7,8 @@ import java.nio.file.Paths;
 import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,8 +21,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.este.models.Cour;
 import com.este.models.Fichier;
+import com.este.models.Professeur;
 import com.este.service.CourService;
 import com.este.service.FichierService;
+import com.este.service.ProfesseurService;
 
 @Controller
 @RequestMapping("professeur")
@@ -34,8 +38,14 @@ public class FichierController {
 	@Autowired
 	private FichierService fichierService;
 	
+	@Autowired
+	private ProfesseurService professeurService;
+	
 	@RequestMapping(value = "cour/fichier/{id}",method = RequestMethod.GET)
 	public String fichiersDeCour(@PathVariable("id") int id ,ModelMap modelMap) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		Professeur prof = professeurService.getByEmail(auth.getName());
+		modelMap.put("prof", prof);
 		modelMap.put("cour", courService.find(id));
 		modelMap.put("fichier", fichierService.getFichiers());
 		
@@ -44,6 +54,9 @@ public class FichierController {
 
 	@RequestMapping(value = "fichier/ajouter/{id}",method = RequestMethod.GET)
 	public String add(@PathVariable("id") int id , ModelMap modelMap) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		Professeur prof = professeurService.getByEmail(auth.getName());
+		modelMap.put("prof", prof);
 		Cour cour = courService.find(id);
 		Fichier fichier = new Fichier();
 		fichier.setCour(cour);

@@ -10,7 +10,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li>
-                        	<c:url value="/professeur/cours" var="index"></c:url>
+                        	<c:url value="/professeur/${profss.getIdProf() }/cours" var="index"></c:url>
                             <a href="${index }">
                                 <i class="fas fa-table"></i>Gestion des cours</a>
                         </li>

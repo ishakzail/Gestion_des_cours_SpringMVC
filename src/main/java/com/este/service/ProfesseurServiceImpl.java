@@ -49,6 +49,12 @@ public class ProfesseurServiceImpl implements ProfesseurService{
 	public Professeur find(int id) {
 		return professeurDao.findById(id).get();
 	}
+	
+	@Override
+	public Professeur getByEmail(String email) {
+		return professeurDao.findByEmail(email);
+	}
+
 
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {

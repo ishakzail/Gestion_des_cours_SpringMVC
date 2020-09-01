@@ -1,5 +1,3 @@
-
-<%@ include file="/WEB-INF/views/includes/includes.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,12 +10,12 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Accueil</title>
+    <title>Modifier un cour</title>
 
     <!-- Fontfaces CSS-->
     <link href="${pageContext.request.contextPath}/resources/utilisateur/css/font-face.css" rel="stylesheet" media="all">
-    <link href="${pageContext.request.contextPath}/resources/utilisateur/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="${pageContext.request.contextPath}/resources/utilisateur/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="${pageContext.request.contextPath}/resources/utilisateur/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="${pageContext.request.contextPath}/resources/utilisateur/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
@@ -39,22 +37,20 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        <!-- HEADER MOBILE-->
-        <!-- END HEADER MOBILE-->
-
+        
         <!-- MENU SIDEBAR-->
-      <%@ include file="/WEB-INF/views/Professeur/components/Menu.jsp"%>
+       <%@ include file="/WEB-INF/views/Professeur/components/Menu.jsp"%>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
-            <header class="header-desktop">
+             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                               <h2> Bienvenue ! </h2> 
+                               <h2> La modification d'un cour </h2> 
                             </form>
                             <div class="header-button">
                                
@@ -66,7 +62,7 @@
                                         <div class="content">
                                             <a class="js-acc-btn" href="#"></a>
                                         </div>
-                                        <%@ include file="/WEB-INF/views/Professeur/components/compte.jsp"%>
+                                       <%@ include file="/WEB-INF/views/Professeur/components/compte.jsp"%>
                                     </div>
                                 </div>
                             </div>
@@ -81,26 +77,54 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        
                         <div class="row">
-                            <div class="col-lg-12">
-                            	
-                            	
-                            	
-                            	Bonjour Monsieur ${prof.getNom() }
-                                
-                                
-                                
+                            
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Formulaire pour modifier le cour ${cour.nom }</strong> 
+                                       
+                                    </div>
+                                    <c:url value="/professeur/cour/modifier"  var="md"/>
+                                    <f:form modelAttribute="cour"  action="${md }" method="post">
+                                    
+                                    
+	                                    <div class="card-body card-block" >
+	                                        <div class="has-success form-group">
+	                                            <label for="inputSuccess2i" class=" form-control-label">Nom du Cour</label>
+	                                            <f:input type="text" path="nom" class="form-control-success form-control" />
+	                                        </div>
+	                                       <f:hidden path="idCour" />
+	                                        
+	                                    </div>
+	                                     <div class="card-body card-block" >
+	                                        <div class="has-success form-group">
+	                                            <label for="inputSuccess2i" class=" form-control-label">Nom du module</label>
+	                                            <f:input type="text" path="module" class="form-control-success form-control" />
+	                                        </div>
+	                                       
+	                                        
+	                                    </div>
+	                                    <div class="form-group" style="text-align: center">
+						                    <button type="submit" class="btn btn-primary btn-user">
+						                      Modifier
+						                    </button>
+						                    
+					                    </div>
+                                    </f:form>
+                                </div>
                             </div>
                             
                         </div>
-                        
+                        <div class="row">
+                            
+                         <div class="col-md-12">
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
         </div>
 
     </div>

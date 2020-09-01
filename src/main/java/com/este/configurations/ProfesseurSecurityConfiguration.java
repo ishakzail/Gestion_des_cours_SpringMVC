@@ -6,6 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -19,7 +20,8 @@ import com.este.service.ProfesseurService;
 
 @EnableWebSecurity
 @Configuration
-@Order(1)
+@Order(8)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ProfesseurSecurityConfiguration extends WebSecurityConfigurerAdapter{
 	
 	
@@ -37,7 +39,7 @@ public class ProfesseurSecurityConfiguration extends WebSecurityConfigurerAdapte
 					.formLogin()
 					.loginPage("/professeur-panel")
 					.loginProcessingUrl("/professeur/process-login")
-					.defaultSuccessUrl("/professeur-panel/welcome" , true)
+					.defaultSuccessUrl("/professeur-panel/welcome")
 					.failureUrl("/professeur-panel/login?error")
 					.usernameParameter("email").passwordParameter("motdepass")
 					.and()
@@ -59,7 +61,7 @@ public class ProfesseurSecurityConfiguration extends WebSecurityConfigurerAdapte
 	public BCryptPasswordEncoder encoder() {
 		return new BCryptPasswordEncoder();
 	}
-//	
+	
 	@Bean
 	public SecurityContextHolderAwareRequestFilter awareRequestFilter(){
 		return new SecurityContextHolderAwareRequestFilter();

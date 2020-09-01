@@ -47,7 +47,7 @@ public class Professeur implements Serializable{
 		
 	}
 	
-
+	
 	public Professeur(int idProf, String nom, String prenom, String email, String motdepass, Role role_prof,
 			List<Cour> cours, Departement departement, Filiere filiere) {
 		super();

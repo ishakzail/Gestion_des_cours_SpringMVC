@@ -1,4 +1,3 @@
-
 <%@ include file="/WEB-INF/views/includes/includes.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +11,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Accueil</title>
+    <title>Login Professeur</title>
 
     <!-- Fontfaces CSS-->
     <link href="${pageContext.request.contextPath}/resources/utilisateur/css/font-face.css" rel="stylesheet" media="all">
@@ -39,68 +38,47 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        <!-- HEADER MOBILE-->
-        <!-- END HEADER MOBILE-->
-
-        <!-- MENU SIDEBAR-->
-      <%@ include file="/WEB-INF/views/Professeur/components/Menu.jsp"%>
-        <!-- END MENU SIDEBAR-->
-
-        <!-- PAGE CONTAINER-->
-        <div class="page-container">
-            <!-- HEADER DESKTOP-->
-            <header class="header-desktop">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
-                            <form class="form-header" action="" method="POST">
-                               <h2> Bienvenue ! </h2> 
-                            </form>
-                            <div class="header-button">
-                               
-                                <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
-                                        <div class="image">
-                                            <img src="${pageContext.request.contextPath}/resources/utilisateur/images/icon/avatar-01.jpg" alt="John Doe" />
-                                        </div>
-                                        <div class="content">
-                                            <a class="js-acc-btn" href="#"></a>
-                                        </div>
-                                        <%@ include file="/WEB-INF/views/Professeur/components/compte.jsp"%>
-                                    </div>
+        <div class="page-content--bge5">
+            <div class="container">
+                <div class="login-wrap">
+                    <div class="login-content">
+                        <div class="login-logo">
+                            <a href="#">
+                                <img src="images/icon/logo.png" alt="CoolAdmin">
+                            </a>
+                        </div>
+                        <div class="login-form">
+                        ${msg }
+                            <form action="${pageContext.request.contextPath}/professeur/process-login" method="post">
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
                                 </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input class="au-input au-input--full" type="password" name="motdepass" placeholder="Password">
+                                </div>
+                                <div class="login-checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember">Remember Me
+                                    </label>
+                                    <label>
+                                        <a href="#">Forgotten Password?</a>
+                                    </label>
+                                </div>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+                                
+                            </form>
+                            <div class="register-link">
+                                <p>
+                                    Don't you have account?
+                                    <a href="#">Sign Up Here</a>
+                                </p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </header>
-            
-            <!-- HEADER DESKTOP-->
-
-            <!-- MAIN CONTENT-->
-            <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        
-                        <div class="row">
-                            <div class="col-lg-12">
-                            	
-                            	
-                            	
-                            	Bonjour Monsieur ${prof.getNom() }
-                                
-                                
-                                
-                            </div>
-                            
-                        </div>
-                        
                     </div>
                 </div>
             </div>
-            
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
         </div>
 
     </div>

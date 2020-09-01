@@ -66,32 +66,7 @@
                                         <div class="content">
                                             <a class="js-acc-btn" href="#"></a>
                                         </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="#">
-                                                        <img src="${pageContext.request.contextPath}/resources/utilisateur/images/icon/avatar-01.jpg" alt="John Doe" />
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#"></a>
-                                                    </h5>
-                                                    <span class="email">johndoe@example.com</span>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
-                                                </div>
-                                           	</div>
-                                            <div class="account-dropdown__footer">
-                                            <c:url value="/professeur/process-logout" var="logout"></c:url>
-                                                <a href="${logout }">
-                                                    <i class="zmdi zmdi-power"></i>Logout</a>
-                                            </div>
-                                        </div>
+                                       <%@ include file="/WEB-INF/views/Professeur/components/compte.jsp"%>
                                     </div>
                                 </div>
                             </div>
@@ -117,7 +92,7 @@
                                 <div class="overview-wrap">
                                     
                                     <button class="au-btn au-btn-icon au-btn--blue">
-                                    	<c:url value="professeur/cour/ajouter" var="ajouter"></c:url>
+                                    	<c:url value="/professeur/cour/ajouter" var="ajouter"></c:url>
                                         <a href="${ajouter }"><i class="zmdi zmdi-plus">Ajouter un cour</i></a>
                                      </button>
                                 </div>
@@ -137,9 +112,16 @@
                                             <tr>
                                                 <td>${cour.nom }</td>
                                                 <td>${cour.module }</td>
-                                                <td>Supprimer | Modifier | 
+                                                <td>
+                                                <c:url value="/professeur/cour/modifier/${cour.idCour }" var="modifier"></c:url>
+												       <a href="${modifier }"><i class="far fa-edit" style="color: green"></a></i> 
+								                       
+								                <c:url value="/professeur/cour/supprimer/${cour.getIdCour() }" var="supprimer" />
+								                     
+								                      <a href="${supprimer }"><i class="far fa-trash-alt" style="color: red"></i></a>  
                                                 <c:url value="/professeur/cour/fichier/${cour.getIdCour() }" var="index"></c:url>
-                                                <a href="${index }" >Fichier</a>
+                                                		|
+                                                		<a href="${index }" >Fichier</a>
                                                  </td>
                                                
                                             </tr>

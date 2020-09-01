@@ -7,6 +7,6 @@
 <title>Access Denied</title>
 </head>
 <body>
-	Vous n'avez pas la permission
+	${msg }
 </body>
 </html>

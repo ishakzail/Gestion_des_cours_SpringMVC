@@ -35,6 +35,12 @@ public class Cour implements Serializable{
 	public Cour() {
 		
 	}
+	
+	public Cour(String nom , String module , Professeur prof) {
+		this.nom = nom;
+		this.module = module;
+		this.prof = prof;
+	}
 
 	public Cour(int idCour, List<Fichier> fichiers, String nom, String module, Professeur prof) {
 		super();

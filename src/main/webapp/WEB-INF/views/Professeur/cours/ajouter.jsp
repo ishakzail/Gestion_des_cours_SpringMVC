@@ -62,33 +62,8 @@
                                         <div class="content">
                                             <a class="js-acc-btn" href="#"></a>
                                         </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="#">
-                                                        <img src="${pageContext.request.contextPath}/resources/utilisateur/images/icon/avatar-01.jpg" alt="John Doe" />
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#"></a>
-                                                    </h5>
-                                                    <span class="email">johndoe@example.com</span>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
-                                                </div>
-                                           	</div>
-                                            <div class="account-dropdown__footer">
-                                            <c:url value="/professeur/process-logout" var="logout"></c:url>
-                                                <a href="${logout }">
-                                                    <i class="zmdi zmdi-power"></i>Logout</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                         <%@ include file="/WEB-INF/views/Professeur/components/compte.jsp"%>
+</div>
                                 </div>
                             </div>
                         </div>
@@ -107,26 +82,43 @@
                             <div class="col-lg-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <strong>Formulaire pour l'ajoute</strong> 
-                                        
+                                        <strong>Formulaire pour l'ajoute des cours</strong> 
+                                       
                                     </div>
-                                    <div class="card-body card-block">
-                                        <div class="has-success form-group">
-                                            <label for="inputSuccess2i" class=" form-control-label">Nom Cour</label>
-                                            <input type="text" id="inputSuccess2i" class="form-control-success form-control">
-                                        </div>
-                                        <div class="has-warning form-group">
-                                            <label for="inputWarning2i" class=" form-control-label">Module</label>
-                                            <input type="text" id="inputWarning2i" class="form-control-warning form-control">
-                                        </div>
-                                        
-                                    </div>
+                                    <c:url value="/professeur/cour/enregister"  var="enregister"/>
+                                    <f:form modelAttribute="cour"  action="${enregister }" method="post">
+                                    
+                                    
+	                                    <div class="card-body card-block" >
+	                                        <div class="has-success form-group">
+	                                            <label for="inputSuccess2i" class=" form-control-label">Nom du Cour</label>
+	                                            <f:input type="text" path="nom" class="form-control-success form-control" />
+	                                        </div>
+	                                       <f:hidden path="idCour" />
+	                                        
+	                                    </div>
+	                                     <div class="card-body card-block" >
+	                                        <div class="has-success form-group">
+	                                            <label for="inputSuccess2i" class=" form-control-label">Nom du module</label>
+	                                            <f:input type="text" path="module" class="form-control-success form-control" />
+	                                        </div>
+	                                       
+	                                        
+	                                    </div>
+	                                    <div class="form-group" style="text-align: center">
+						                    <button type="submit" class="btn btn-primary btn-user">
+						                      Enregister
+						                    </button>
+						                    
+					                    </div>
+                                    </f:form>
                                 </div>
                             </div>
                             
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            
+                         <div class="col-md-12">
                                 
                             </div>
                         </div>

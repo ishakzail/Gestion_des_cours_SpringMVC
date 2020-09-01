@@ -43,7 +43,7 @@
         <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
-      <%@ include file="/WEB-INF/views/Professeur/components/Menu.jsp"%>
+       <%@ include file="/WEB-INF/views/Professeur/components/Menu.jsp"%>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
@@ -54,7 +54,7 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                               <h2> Bienvenue ! </h2> 
+                               <h2> Liste des Cours </h2> 
                             </form>
                             <div class="header-button">
                                
@@ -66,7 +66,32 @@
                                         <div class="content">
                                             <a class="js-acc-btn" href="#"></a>
                                         </div>
-                                        <%@ include file="/WEB-INF/views/Professeur/components/compte.jsp"%>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img src="${pageContext.request.contextPath}/resources/utilisateur/images/icon/avatar-01.jpg" alt="John Doe" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#"></a>
+                                                    </h5>
+                                                    <span class="email">johndoe@example.com</span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                </div>
+                                           	</div>
+                                            <div class="account-dropdown__footer">
+                                            <c:url value="/professeur/process-logout" var="logout"></c:url>
+                                                <a href="${logout }">
+                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -86,11 +111,42 @@
                             <div class="col-lg-12">
                             	
                             	
-                            	
-                            	Bonjour Monsieur ${prof.getNom() }
+                            
                                 
                                 
-                                
+                                <div class="overview-wrap">
+                                    
+                                    <button class="au-btn au-btn-icon au-btn--blue">
+                                    	<c:url value="professeur/cour/ajouter" var="ajouter"></c:url>
+                                        <a href="${ajouter }"><i class="zmdi zmdi-plus">Ajouter un cour</i></a>
+                                     </button>
+                                </div>
+                                <br>
+                                <div class="table-responsive table--no-card m-b-40">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                                <th>Nom du cour</th>
+                                                <th>Module</th>
+                                                <th>Action</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach items="${cours }" var="cour">
+                                            <tr>
+                                                <td>${cour.nom }</td>
+                                                <td>${cour.module }</td>
+                                                <td>Supprimer | Modifier | 
+                                                <c:url value="/professeur/cour/fichier/${cour.getIdCour() }" var="index"></c:url>
+                                                <a href="${index }" >Fichier</a>
+                                                 </td>
+                                               
+                                            </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             
                         </div>
@@ -98,7 +154,6 @@
                     </div>
                 </div>
             </div>
-            
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>
