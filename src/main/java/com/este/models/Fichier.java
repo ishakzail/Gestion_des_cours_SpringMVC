@@ -27,6 +27,10 @@ public class Fichier implements Serializable{
 	
 	private String nom;
 	
+	private String type;
+	
+	
+	
 	@ManyToOne
 	@JoinColumn(name = "idCour")
 	private Cour cour;
@@ -44,11 +48,12 @@ public class Fichier implements Serializable{
 
 
 
-	public Fichier(byte[] data, String nom, Cour cour) {
+	public Fichier(byte[] data, String nom, Cour cour , String type) {
 		super();
 		this.data = data;
 		this.nom = nom;
 		this.cour = cour;
+		this.type = type;
 	}
 
 	public int getIdFic() {
@@ -83,6 +88,15 @@ public class Fichier implements Serializable{
 	public void setData(byte[] data) {
 		this.data = data;
 	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+	
 	
 	
 

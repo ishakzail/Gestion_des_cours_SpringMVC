@@ -33,13 +33,15 @@ public class FichierServiceImpl implements FichierService{
 	}
 
 
-
-
-
-
 	@Override
 	public Fichier save(Fichier fichier) {
 		return fichierDao.save(fichier);
+	}
+
+
+	@Override
+	public Optional<Fichier> getFile(int id) {
+		return fichierDao.findById(id);
 	}
 
 	

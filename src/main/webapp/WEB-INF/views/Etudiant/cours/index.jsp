@@ -116,10 +116,6 @@
                                 
                                 <div class="overview-wrap">
                                     
-                                    <button class="au-btn au-btn-icon au-btn--blue">
-                                    	<c:url value="professeur/cour/ajouter" var="ajouter"></c:url>
-                                        <a href="${ajouter }"><i class="zmdi zmdi-plus">Ajouter un cour</i></a>
-                                     </button>
                                 </div>
                                 <br>
                                 <div class="table-responsive table--no-card m-b-40">
@@ -137,8 +133,8 @@
                                             <tr>
                                                 <td>${cour.nom }</td>
                                                 <td>${cour.module }</td>
-                                                <td>Supprimer | Modifier | 
-                                                <c:url value="/professeur/cour/fichier/${cour.getIdCour() }" var="index"></c:url>
+                                                <td>
+                                                <c:url value="/etudiant/cour/fichier/${cour.getIdCour() }" var="index"></c:url>
                                                 <a href="${index }" >Fichier</a>
                                                  </td>
                                                

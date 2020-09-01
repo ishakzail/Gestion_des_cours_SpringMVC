@@ -70,7 +70,7 @@ public class FichierController {
 			@RequestParam(value="file") MultipartFile file){
 		String ficheNom = file.getOriginalFilename();
 		try {
-			Fichier fiche = new Fichier( file.getBytes(), ficheNom , fichier.getCour());
+			Fichier fiche = new Fichier( file.getBytes(), ficheNom , fichier.getCour() , file.getContentType());
 			fichierService.save(fiche);
 		}catch(Exception e) {
 			e.printStackTrace();

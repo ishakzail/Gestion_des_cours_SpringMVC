@@ -43,6 +43,11 @@ public class CourServiceImpl implements CourService{
 		return courDao.findById(id).get();
 	}
 
+	@Override
+	public Iterable<Cour> getAllCours() {
+		return courDao.findAll();
+	}
+
 	
 
 	

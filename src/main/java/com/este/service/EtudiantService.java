@@ -1,8 +1,11 @@
 package com.este.service;
 
-import com.este.models.Etudiant;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
-public interface EtudiantService {
+import com.este.models.Etudiant;
+import com.este.models.Professeur;
+
+public interface EtudiantService extends UserDetailsService{
 	
 	
 	public Iterable<Etudiant> selectAll();
@@ -12,5 +15,7 @@ public interface EtudiantService {
 	public void delete(int id);
 	
 	public Etudiant find(int id);
+	
+	public Etudiant getByEmail(String email);
 
 }

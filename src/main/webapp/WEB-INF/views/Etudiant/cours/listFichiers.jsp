@@ -1,3 +1,5 @@
+
+<%@ include file="/WEB-INF/views/includes/includes.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,12 +12,12 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Ajouter un cour</title>
+    <title>Accueil</title>
 
     <!-- Fontfaces CSS-->
     <link href="${pageContext.request.contextPath}/resources/utilisateur/css/font-face.css" rel="stylesheet" media="all">
-    <link href="${pageContext.request.contextPath}/resources/utilisateur/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="${pageContext.request.contextPath}/resources/utilisateur/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="${pageContext.request.contextPath}/resources/utilisateur/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="${pageContext.request.contextPath}/resources/utilisateur/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
@@ -37,7 +39,9 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        
+        <!-- HEADER MOBILE-->
+        <!-- END HEADER MOBILE-->
+
         <!-- MENU SIDEBAR-->
        <%@ include file="/WEB-INF/views/Professeur/components/Menu.jsp"%>
         <!-- END MENU SIDEBAR-->
@@ -45,12 +49,12 @@
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
-             <header class="header-desktop">
+            <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                               <h2> L'ajoute d'un cour </h2> 
+                               <h2> Liste des fichiers </h2> 
                             </form>
                             <div class="header-button">
                                
@@ -62,32 +66,7 @@
                                         <div class="content">
                                             <a class="js-acc-btn" href="#"></a>
                                         </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="#">
-                                                        <img src="${pageContext.request.contextPath}/resources/utilisateur/images/icon/avatar-01.jpg" alt="John Doe" />
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#"></a>
-                                                    </h5>
-                                                    <span class="email">johndoe@example.com</span>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
-                                                </div>
-                                           	</div>
-                                            <div class="account-dropdown__footer">
-                                            <c:url value="/professeur/process-logout" var="logout"></c:url>
-                                                <a href="${logout }">
-                                                    <i class="zmdi zmdi-power"></i>Logout</a>
-                                            </div>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -102,37 +81,52 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
+                        
                         <div class="row">
+                            <div class="col-lg-12">
+                            	
+                            	
                             
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <strong>Formulaire pour l'ajoute</strong> 
-                                        
-                                    </div>
-                                    <div class="card-body card-block">
-                                        <div class="has-success form-group">
-                                            <label for="inputSuccess2i" class=" form-control-label">Nom Cour</label>
-                                            <input type="text" id="inputSuccess2i" class="form-control-success form-control">
-                                        </div>
-                                        <div class="has-warning form-group">
-                                            <label for="inputWarning2i" class=" form-control-label">Module</label>
-                                            <input type="text" id="inputWarning2i" class="form-control-warning form-control">
-                                        </div>
-                                        
-                                    </div>
+                                
+                                
+                                <div class="overview-wrap">
+                                    Liste des fichiers du cour ${cour.nom }
+                                </div>
+                                <br>
+                                <div class="table-responsive table--no-card m-b-40">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                                <th>Nom du fichier</th>
+                                                
+                                                <th>Action</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach items="${fichier }" var="f">
+                                            <tr>
+                                                <td>${f.nom }</td>
+                                                
+                                                <td>
+                                                <c:url value="/etudiant/cour/fichier/telecharger/${f.getIdFic() }" var="telecharger"></c:url>
+                                                <a href="${telecharger }" >Télécharger</a>
+                                                 </td>
+                                               
+                                            </tr>
+                                        </c:forEach>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                             
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
         </div>
 
     </div>

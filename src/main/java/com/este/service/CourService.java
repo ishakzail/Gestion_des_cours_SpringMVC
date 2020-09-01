@@ -9,6 +9,8 @@ public interface CourService {
 
 	public List<Cour> selectAll(Professeur prof);
 	
+	public Iterable<Cour> getAllCours();
+	
 	public Cour save(Cour cour);
 	
 	public void delete(int id);

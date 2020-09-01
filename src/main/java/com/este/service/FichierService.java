@@ -13,6 +13,7 @@ public interface FichierService {
 	
 	public void delete(int id);
 
+	public Optional<Fichier> getFile(int id);
 	
 	public Iterable<Fichier> getFichiers();
 }
